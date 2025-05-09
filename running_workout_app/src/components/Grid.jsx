@@ -3,7 +3,7 @@ import RunCard from './RunCard.jsx'
 
 export default function Grid() {
     const locked = true
-    const selectedRun = 0
+    const selectedRun = 4
     return (
         <div className="training-grid-plan">
             { Object.keys(training_plan).map((run, runIndex) => {
@@ -12,20 +12,8 @@ export default function Grid() {
                 runIndex % 7 === 4 ? 'Rest' :
                 runIndex % 7 === 6 ? 'Long Run' : 'Easy Run'
                 const trainingPlan = training_plan[runIndex]
-                if (runIndex === selectedRun) {
-                    return (
-                        <RunCard />
-                    )
-                }
-                return (
-                    <button key={runIndex}>
-                        <div className='plan-card-header'>
-                            <p>Day {((runIndex / 8) <= 1) ? '0' + (runIndex + 1) : runIndex + 1}</p>
-                        </div>
-                        { locked ? (
-                            <i className='fa-solid fa-lock'></i>
-                        ) : (
-                            runIndex % 7 === 1 ? (
+                const dayNum = ((runIndex / 8) <= 1) ? '0' + (runIndex + 1) : runIndex + 1
+                const icon = runIndex % 7 === 1 ? (
                                 // speed workout on day 2
                                 <i className='fa-solid fa-bolt'></i>
                             ) : (
@@ -48,7 +36,20 @@ export default function Grid() {
                                     )
                                 )
                             )
-                        )}
+
+                if (runIndex === selectedRun) {
+                    return (
+                        <RunCard key={runIndex} trainingPlan={trainingPlan} type={type} runIndex={runIndex} icon={icon} dayNum={dayNum} />
+                    )
+                }
+                return (
+                    <button className={'card plan-card ' + (locked ? 'inactive' : '')} key={runIndex}>
+                        <div className='plan-card-header'>
+                            <p>Day {dayNum}</p>
+                        </div>
+                        { locked ? (
+                            <i className='fa-solid fa-lock'></i>
+                        ) : (icon)}
                         <div className='plan-card-header'>
                             <h4><b>{type}</b></h4>
                         </div>
