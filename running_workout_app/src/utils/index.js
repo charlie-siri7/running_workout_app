@@ -1,10 +1,10 @@
-standard_warmup = [
+const standard_warmup = [
     { name: "Side leg swing", leg: "left", sets: 10 },
     { name: "Side leg swing", leg: "right", sets: 10 },
     { name: "Front leg swing", leg: "left", sets: 10 },
     { name: "Front leg swing", leg: "right", sets: 10 }
 ]
-standard_cooldown = [
+const standard_cooldown = [
     { name: "Hamstring stretch", leg: "left", seconds: 20 },
     { name: "Hamstring stretch", leg: "right", seconds: 20 },
     { name: "Butterfly stretch", seconds: 20 },
@@ -86,7 +86,7 @@ function tempo(type, duration) {
     }
 }
 
-export const program = {
+export const runningProgram = {
     0: run("Easy run", 3),
     1: run("Easy run", 4),
     2: run("Easy run", 5),

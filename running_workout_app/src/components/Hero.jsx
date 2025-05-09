@@ -26,6 +26,9 @@ export default function Hero() {
                 </div>
             </ul>
             <small>*Explanation of heart rate zones: <a href="https://health.clevelandclinic.org/exercise-heart-rate-zones-explained" target="_blank">here</a></small>
+            <h3>Training Plan</h3>
+            <p>Consists of easy runs, long runs, race-pace runs, tempo runs, interval workouts, and hill workouts</p>
+            <p>Complete the below workouts and track progress along the way</p>
         </>
     )
 }
