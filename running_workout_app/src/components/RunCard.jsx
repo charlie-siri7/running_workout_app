@@ -1,12 +1,18 @@
 import React from "react"
+import Modal from "./Modal"
 
 export default function RunCard(props) {
     const { trainingPlan, runIndex, type, dayNum, icon } = props
 
     const { warmup, run, cooldown } = trainingPlan || {}
 
+    const showExerciseDescription = { name: 'name', description: 'description' }
+
     return (
         <div className="run-container">
+  <Modal
+    showExerciseDescription={showExerciseDescription}
+    handleCloseModal={() => {}} />
             <div className="run-card card">
                 <div className="plan-card-header">
                     <p>Day {dayNum}</p>
