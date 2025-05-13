@@ -5,7 +5,7 @@ export default function Grid() {
     const locked = true
     const selectedRun = 4
     return (
-        <div className="training-grid-plan">
+        <div className="training-plan-grid">
             { Object.keys(training_plan).map((run, runIndex) => {
                 const type = runIndex % 7 === 1 ? 'Interval' :
                 runIndex % 7 === 3 ? 'Tempo' :
