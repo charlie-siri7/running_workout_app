@@ -7,7 +7,7 @@ const standard_warmup = [
 const standard_cooldown = [
     { name: "Hamstring stretch", leg: "left", seconds: 20 },
     { name: "Hamstring stretch", leg: "right", seconds: 20 },
-    { name: "Butterfly stretch", seconds: 20 },
+    { name: "Butterfly stretch", leg: "both", seconds: 20 },
     { name: "Glute stretch", leg: "left", seconds: 20 },
     { name: "Glute stretch", leg: "right", seconds: 20 },
     { name: "Hip flexor stretch", leg: "left", seconds: 20 },
@@ -24,8 +24,8 @@ function workout_warmup(distance) {
         { name: "Side leg swing", leg: "right", sets: 10 },
         { name: "Front leg swing", leg: "left", sets: 10 },
         { name: "Front leg swing", leg: "right", sets: 10 },
-        { name: "Heel walk", sets: 20 },
-        { name: "Easy run", miles: distance },
+        { name: "Heel walk", leg: "both", sets: 20 },
+        { name: "Easy run", leg: "both", miles: distance },
         { name: "Lunge", leg: "left", sets: 10 },
         { name: "Lunge", leg: "right", sets: 10 },
         { name: "Side lunge", leg: "left", sets: 10 },
@@ -60,7 +60,7 @@ function run(type, distance) {
     return {
         warmup: standard_warmup,
         run: [
-            { name: type, miles: distance }
+            { name: type, miles: distance, sets: 1 }
         ],
         cooldown: standard_cooldown
     }
@@ -70,7 +70,7 @@ function workout(type, distance, count) {
     return {
         warmup: workout_warmup(2),
         run: [
-            { name: type, miles: distance, reps: count }
+            { name: type, miles: distance, sets: count }
         ],
         cooldown: workout_cooldown(1)
     }
@@ -80,7 +80,7 @@ function tempo(type, duration) {
     return {
         warmup: workout_warmup(2),
         run: [
-            { name: type, time: duration }
+            { name: type, time: duration, sets: 1 }
         ],
         cooldown: workout_cooldown(1)
     }

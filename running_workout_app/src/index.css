@@ -82,3 +82,36 @@ h3, .training-plan-grid {
     line-height: 1rem;
     color: var(--color-link);
 }
+
+.run-container {
+    grid-column: span 3 / span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.run-grid {
+    display: grid;
+    gap: 0.5rem;
+    overflow-x: auto;
+
+}
+
+#warmup, #cooldown {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#run {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* .exercise-name {
+    grid-column: span 3 / span 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.value-input {
+    grid-column: span 2 / span 2;
+} */
